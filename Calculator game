@@ -1,0 +1,41 @@
+//1 2 3 4 5 6 7 8 9 0
+import java.util.Scanner;
+
+public class Game_Calculytor {
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Выберете объект от 0 до 9");
+        double c = 0;
+        int a = sc.nextInt();
+        System.out.println("Вы дастали бинокль (x8) и нашли клад, также появляется змей (5y),выберите оружие |0-щит|1-меч|9-топор|");
+        int b = sc.nextInt();
+        if (a <= 9 && (b==0 || b==1 || b==9)) {
+            c = (a*10+8)*(50+b);
+        }
+        if (c != 0) {
+            System.out.println(c+"="+(a*10+8) + " * " + (50+b));
+            if (c == 5782.0) {
+                System.out.println("Вы выполнели задание MAX");
+                System.out.println("Вы не выполнели задание MIN без 0");
+                System.out.println("Вы не выполнели задание MIN c 0");
+            }
+
+            if (c == 918.0) {
+                System.out.println("Вы не выполнели задание MAX");
+                System.out.println("Вы выполнели задание MIN без 0");
+                System.out.println("Вы не выполнели задание MIN c 0");
+            }
+            if (c == 400.0) {
+                System.out.println("Вы не выполнели задание MAX");
+                System.out.println("Вы не выполнели задание MIN без 0");
+                System.out.println("Вы выполнели задание MIN без 0");
+            }
+            if (a == b) {
+                System.out.println("Вы выполнели задание EQUALS");
+            }
+        }
+        else {
+            System.out.println("HACKER");
+        }
+    }
+}
