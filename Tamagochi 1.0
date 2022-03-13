@@ -1,0 +1,82 @@
+import java.util.Scanner;
+
+public class Tamogochi {
+    public static void main(String[] args){
+
+        int food = 10;
+        int coin = 0;
+        int nastr1 = 10;
+        boolean nastr = true;
+        String doing = "";
+        int old = 0;
+        boolean die = true;
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Хотите читы:");
+        boolean chit = sc.nextBoolean();
+        System.out.println("Напишите сколько вы хотите дней(шагов)");
+        int max_old = sc.nextInt();
+        System.out.println("У вас есть "+max_old+" дней, потом он умрёт.");
+        while (die) {
+            if (nastr) {
+                coin += 10;
+            }
+            System.out.println("coin:"+coin + " food:"+food + " настроение:"+nastr1 + ". У вас осталось " + (max_old-old) + " дней");
+            System.out.println("есть / играть / читы("+chit+")");
+            doing = sc.next();
+            if (doing.equals("есть")) {
+                System.out.println("что есть котлета :"+(food+5)+" и "+(coin-5)+" / сосиска :"+(food+10)+" и "+(coin-10)+"/ бургер :"+(food+20)+" и "+(coin-20));
+                doing = sc.next();
+                if (doing.equals("котлета")) {
+                    food += 5;
+                    coin -= 5;
+                }
+                else if (doing.equals("сосиска")) {
+                    food += 10;
+                    coin -= 10;
+                }
+                else if (doing.equals("бургер")) {
+                    food += 20;
+                    coin -= 20;
+                }
+            else if (doing.equals("сказать")) {
+                if (chit) {
+                    //нету
+                }
+                    else {
+                        System.out.println("Не читерите");
+                    }
+
+                }
+                doing = "";
+            }
+            if (doing.equals("играть")) {
+                nastr1 += 5;
+                coin -= 1;
+            }
+            food -= 1;
+            nastr1 -= 1;
+            old += 1;
+            if (old >= max_old) {
+                die = false;
+                System.out.println("Tamogochi умер от старости");
+            }
+            if (food < 6 || nastr1 < 6) {
+                nastr = false;
+            }
+            else {
+                nastr = true;
+            }
+            if (food < 0) {
+                System.out.println("Tamogochi умер");
+                die = false;
+            }
+            if (coin < 0) {
+                System.out.println("Tamogochi умер");
+                die = false;
+            }
+            if (nastr) {
+                coin += 10;
+            }
+        }
+    }
+}
